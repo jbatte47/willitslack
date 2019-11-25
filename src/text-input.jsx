@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
 
-const TextInput = ({ onTextChanged }) => {
+const TextInput = ({ onTextChanged, label }) => {
   const input = useRef(null);
 
   const handleChange = e => {
@@ -13,11 +14,26 @@ const TextInput = ({ onTextChanged }) => {
     onTextChanged({ text: value });
   };
 
-  return <input ref={input} type="text" onChange={handleChange} />;
+  return (
+    <TextField
+      inputRef={input}
+      type="text"
+      onChange={handleChange}
+      label={label}
+      margin="normal"
+      variant="outlined"
+      fullWidth
+    />
+  );
+};
+
+TextInput.defaultProps = {
+  label: '',
 };
 
 TextInput.propTypes = {
   onTextChanged: PropTypes.func.isRequired,
+  label: PropTypes.string,
 };
 
 export default TextInput;

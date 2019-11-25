@@ -12,7 +12,9 @@ const getFileSize = async url => {
 const useHeadLookup = () => {
   const [url, setUrl] = useState('');
   const debouncedGetFileSize = useConstant(() => debounce(getFileSize, 500));
-  const lookup = useAsync(() => (url.length === 0 ? null : debouncedGetFileSize(url)), [url]);
+  const lookup = useAsync(() => (!url || url.length === 0 ? null : debouncedGetFileSize(url)), [
+    url,
+  ]);
 
   return {
     url,
