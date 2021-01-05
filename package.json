@@ -43,7 +43,7 @@
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "awesome-debounce-promise": "^2.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "filesize": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
